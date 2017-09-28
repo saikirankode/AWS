@@ -6,11 +6,12 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"os"
 )
 
 func main() {
-	accessid := "AKIAJGNZKBMDTCG3T7GA"
-	accesskey := "j+aFsGQpf4+bCvCqFJ8hHKUF094688eMGRVgRVWQ"
+	accessid := os.Getenv("s3accessid")
+	accesskey := os.Getenv("secretacceskey")
 	token := ""
 	cred := credentials.NewStaticCredentials(accessid, accesskey, token)
 	config := aws.NewConfig()
